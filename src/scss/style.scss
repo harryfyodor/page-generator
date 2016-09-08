@@ -1,0 +1,392 @@
+/*ÉùÃ÷ WebFont*/
+@font-face {
+  font-family: 'fangzheng';
+  src: url('../fonts/fangzheng.TTF');
+  src:
+  url('../fonts/fangzheng.eot?#font-spider') format('embedded-opentype'),
+  url('../fonts/fangzheng.ttf') format('truetype'),
+  url('../fonts/fangzheng.woff') format('woff'),
+  url('../fonts/fangzheng.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ahellya";
+  src: url('../fonts/ahellya.ttf');
+  src:
+    url('../fonts/ahellya.eot?#font-spider') format('embedded-opentype'),
+    url('../fonts/ahellya.ttf') format('truetype'),
+    url('../fonts/ahellya.woff') format('woff'),
+    url('../fonts/ahellya.svg') format('svg');
+}
+
+$seaColor: #5B6C9A;
+$lightSea: #EEEEEE;
+$lightSky: #C2D4E0;
+
+@mixin beRed() {
+  animation: beingRed 800ms;
+  color: red;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "ahellya", "Times New Roman", "fangzheng", sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+  position: relative;
+  img {
+    width: 100%;
+    box-shadow: 0 0 20px black;
+  }
+  ul {
+    display: flex;
+  }
+  li {
+    flex-direction: column;
+  }
+  &>div {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  hgroup {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    h1 {
+      font-size: 2.5rem;
+      line-height: 3.5rem;
+      a:hover {
+        text-decoration: none;
+      }
+    }
+    p {
+      font-weight: 600;
+    }
+  }
+  .header-menu {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    li{
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+    li>a:hover {
+      text-decoration: none;
+      text-shadow: 0 0 1px black;
+    }
+  }
+  @media (max-width: 960px) {
+    .header-menu {
+      height: 30%;
+    }
+  }
+  @media (max-width: 640px) {
+    .header-menu {
+      height: 20%;
+      ul {
+        width: 100%;
+      }
+      li{
+        text-align: center;
+        width: 20%;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.back-top {
+  position: fixed;
+  margin-left: 90%;
+  margin-top: 90vh;
+  font-weight: 600;
+  color: $seaColor;
+  font-size: 1.5rem;
+}
+.back-top:hover {
+  @include beRed();
+  cursor: pointer;
+}
+
+@mixin sectionDefault() {
+  background-color: $lightSky;
+  box-shadow: 0 0 10px $seaColor;
+  &:hover {
+    animation: shadow 800ms;
+    box-shadow: 0 0 10px black;
+  }
+}
+
+section {
+  margin-top: 2rem;
+  line-height: 1.5;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: row;
+  padding:1rem 20%;
+  font-weight: 600;
+  h2 {
+    width: 2rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  section {
+    padding: 1rem 15%;
+  }
+}
+
+@media (max-width: 960px) {
+  section {
+    padding: 1rem 10%;
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 1rem 5%;
+  }
+}
+
+.sec-about {
+  @include sectionDefault();
+  div {
+    padding-left: 1rem;
+  }
+}
+
+.sec-tech {
+  opacity: 0;
+  div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  h3 {
+    border-left: 3px solid $seaColor;
+    padding-left: 1rem;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  ul {
+    width: 100%;
+    margin-left: 1rem;
+  }
+  li {
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 0 10px $seaColor;
+    padding: 0.8rem;
+    background-color: $lightSky;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  li:hover {
+    cursor: default;
+    h3 {
+      animation: moveTo 800ms;
+      border-left: 3px solid red;
+      padding-left: 1.5rem;
+      font-weight: 600;
+    }
+    animation: shadow 800ms;
+    box-shadow: 0 0 10px black;
+  }
+  @media (max-width: 1280px) {
+    div {
+     flex-direction: column;
+      width: 90%;
+    }
+    ul {
+      width: 100%;
+    }
+  }
+}
+
+.sec-proj {
+  opacity: 0;
+  @include sectionDefault();
+  ul {
+    margin-left: 1rem;
+    width: 100%;
+  }
+  li {
+    cursor: default;
+    div {
+      height: 0;
+      border-bottom: 3px solid $seaColor;
+      margin-bottom: 1rem;
+      width: 30%;
+    }
+    a {
+      color: $seaColor;
+    }
+    a:nth-child(2) {
+      margin-right: 0.5rem;
+    }
+    a:hover {
+      @include beRed();
+    }
+    &:hover {
+      div {
+        animation: longer 800ms;
+        width: 50%;
+        border-bottom: 3px solid red;
+      }
+    }
+  }
+}
+
+.sec-blogs,
+.sec-contact {
+  opacity: 0;
+  ul {
+    margin-left: 1rem;
+  }
+  a {
+    color: $seaColor;
+  }
+  a:hover {
+    @include beRed();
+  }
+  h3, time {
+    display: inline-block;
+  }
+  time {
+    margin-left: 1rem;
+  }
+}
+
+.sec-contact {
+  @include sectionDefault();
+  a {
+    margin-left: 0.5rem;
+  }
+}
+
+footer {
+  background-image: url("../images/sky.jpg");
+  font-family: "Georgia", "Times New Roman", "fangzheng", sans-serif;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-shadow: 0 0 10px black;
+  img {
+    width: 100%;
+  }
+  p {
+    position: absolute;
+    color: black;
+  }
+  a {
+    color: $seaColor;
+  }
+  a:hover {
+    @include beRed();
+  }
+}
+
+.appearing {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn
+{
+  from {
+    margin-top: 3rem;
+    opacity: 0;
+  }
+  to {
+    margin-top: 2rem;
+    opacity: 1;
+  }
+}
+
+.appeared {
+  margin-top: 2rem;
+  opacity: 1;
+}
+
+@keyframes moveTo
+{
+  from {
+    border-left: 3px solid $seaColor;
+    padding-left: 1rem;
+  }
+  to {
+    border-left: 3px solid red;
+    padding-left: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+@keyframes shadow
+{
+  from {
+    box-shadow: 0 0 10px $seaColor;
+  }
+  to {
+    box-shadow: 0 0 10px black;
+  }
+}
+
+@keyframes longer
+{
+  from {
+    width: 30%;
+    color: $seaColor;
+  }
+  to {
+    width: 50%;
+    border-bottom: 3px solid red;
+  }
+}
+
+@keyframes beingRed
+{
+  from {
+    color: $seaColor;
+  }
+  to {
+    color: red;
+  }
+}

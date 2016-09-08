@@ -1,0 +1,31 @@
+{
+  "name": "Add your name here.",
+  "motto": "Add a cool motto here.",
+  "about": "Add a paragraph introduing yourself.",
+  "skills": [
+    {
+      "title": "Add the skill you have.",
+      "detail": "And the detail. You can add more skills in this array."
+    }
+  ],
+  "proj": [
+    {
+      "title": "Add your projects here.",
+      "code": "Add the link of code here.",
+      "demo": "Add the link of demo here."
+    }
+  ],
+  "blogs": [
+    {
+      "title": "Add your blogs here.",
+      "link": "Add the links of blogs here.",
+      "time": "Add the time."
+    }
+  ],
+  "contact": [
+    {
+      "title": "Add the infomation title here. For example, email.",
+      "info": "Add the detail."
+    }
+  ]
+}

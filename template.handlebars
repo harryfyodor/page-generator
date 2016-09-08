@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Me</title>
+    <link rel="stylesheet" href="./dist/css/style.min.css"/>
+</head>
+<body>
+<header>
+    <img src="./dist/images/Sea.jpg" alt="Sea"/>
+    <div>
+        <div class="header-menu">
+            <ul>
+                <li><a href="#" name="about">关于</a></li>
+                <li><a href="#" name="tech">技术</a></li>
+                <li><a href="#" name="proj">项目</a></li>
+                <li><a href="#" name="blogs">博文</a></li>
+                <li><a href="#" name="contact">联系</a></li>
+            </ul>
+        </div>
+        <hgroup>
+            <h1>
+                <a href="#">{{ name }}</a>
+            </h1>
+            <p>{{ motto }}</p>
+        </hgroup>
+    </div>
+</header>
+<div class="back-top">
+    最上
+</div>
+<section class="sec-about">
+    <h2>关于</h2>
+    <div>
+        <p>{{ about }}</p>
+    </div>
+</section>
+<section class="sec-tech">
+    <h2>技术</h2>
+    <div>
+        {{#doubleList skills}}
+            <h3>{{ title }}</h3>
+            <p>{{ detail }}</p>
+        {{/doubleList}}
+    </div>
+</section>
+<section class="sec-proj">
+    <h2>项目</h2>
+    {{#list proj}}
+        <h3>{{ title }}</h3>
+        <a href="{{ code }}">code</a><a href="{{ demo }}">demo</a>
+        <div></div>
+    {{/list}}
+</section>
+<section class="sec-blogs">
+    <h2>博文</h2>
+    {{#list blogs}}
+        <h3><a href="{{ link }}">{{ title }}</a></h3><time>{{ time }}</time>
+    {{/list}}
+</section>
+<section class="sec-contact">
+    <h2>联系</h2>
+    {{#list contact}}
+        {{ info }}:<a href="#">{{ title }}</a>
+    {{/list}}
+</section>
+<footer>
+    <img src="./dist/images/sky.jpg" alt="sky"/>
+    <p>Copyright © 2016 harryfyodor. All Rights Reserved.<br>
+        图片来源为 <a href="http://cupcake.nilssonlee.se/">Cupcake</a> 。<br>
+        本主页由 <a href="https://github.com/harryfyodor/page-generator">page-generator</a> 生成。</p>
+</footer>
+<script src="./dist/js/bundle.min.js"></script>
+</body>
+</html>
