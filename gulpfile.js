@@ -19,7 +19,7 @@ var pump = require('pump');
 gulp.task('fontspider', function() {
 	return gulp.src('./index.html')
 		.pipe(fontSpider())
-		.pipe(notify({ message: "Hbs task completed." }));
+		.pipe(notify({ message: "Fontspider task completed." }));
 });
 
 // 支持commonjs，并且合并成单文件
@@ -38,6 +38,7 @@ gulp.task('browserify', function(){
 });
 
 gulp.task('scripts', ['browserify'], function() {
+
 	pump([
 		gulp.src('dist/js/bundle.js'),
 		uglify(),
@@ -59,20 +60,46 @@ gulp.task('browser-sync', function() {
 // 编译handlebars
 gulp.task('hbs', function() {
 	var json = require('./data.json');
+
+	var markdownify = function(json) {
+		var str = JSON.stringify(json);
+
+		return JSON.parse(
+			str
+				.replace(/`([^`]+)`/g, '<code>$1</code>')
+				.replace(/(\*{2})(.*?)\1/g, '<strong>$2</strong>')
+		);
+	};
+
+	json = markdownify(json);
+
 	var listGenerator = function(begin, end, options, items){
 		var out = "<ul>";
 		for(var i=begin, l=end; i<l; i++) {
 			out = out + "<li>" + options.fn(items[i]) + "</li>";
 		}
 		return out + "</ul>";
-	}
+	};
 	var options = {
-		ignorePartials: false,
+		ignorePartials: true,
 		helpers: {
 			doubleList: function(items, opts){
 				if(items.length === 1) return listGenerator(0, 1, opts, items);
-				var listLeft = listGenerator(0, items.length/2, opts, items);
-				var listRight = listGenerator(items.length/2, items.length, opts, items);
+
+				var listLeft = "<ul>";
+				var listRight = "<ul>";
+
+				for (var i = 0, len = items.length; i < len; i++) {
+					if(i%2 === 0) {
+						listLeft += "<li>" + opts.fn(items[i]) + "</li>";
+					} else {
+						listRight += "<li>" + opts.fn(items[i]) + "</li>";
+					}
+				}
+
+				listLeft += "</ul>";
+				listRight += "</ul>"
+
 				return listLeft + listRight;
 			},
 			list: function(items, opts) {
@@ -104,4 +131,4 @@ gulp.task('images', function(){
 		.pipe(notify({ message: 'Images task complete' }));
 });
 
-gulp.task('default', ['hbs', 'fontspider', 'scripts', 'styles', 'images']);
+gulp.task('default', ['hbs', 'scripts', 'styles', 'images']);

@@ -2,7 +2,7 @@
 /*声明 WebFont*/
 @font-face {
   font-family: 'fangzheng';
-  src: url("../fonts/fangzheng.TTF");
+  src: url("../../src/fonts/fangzheng.TTF");
   src: url("../fonts/fangzheng.eot?#font-spider") format("embedded-opentype"), url("../fonts/fangzheng.ttf") format("truetype"), url("../fonts/fangzheng.woff") format("woff"), url("../fonts/fangzheng.svg") format("svg");
   font-weight: normal;
   font-style: normal; }
@@ -21,6 +21,17 @@ ul, ol {
 a {
   color: black;
   text-decoration: none; }
+
+code {
+  background-color: #5B6C9A;
+  color: #eeeeee;
+  padding: 0.1rem;
+  font-size: 1.4rem;
+  border-radius: 3px;
+  margin: 0 0.1rem; }
+
+strong {
+  text-shadow: 0 0 1px black; }
 
 html {
   font-size: 100%; }

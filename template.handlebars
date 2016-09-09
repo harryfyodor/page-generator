@@ -33,7 +33,7 @@
 <section class="sec-about">
     <h2>关于</h2>
     <div>
-        <p>{{ about }}</p>
+        <p>{{{ about }}}</p>
     </div>
 </section>
 <section class="sec-tech">
@@ -41,7 +41,7 @@
     <div>
         {{#doubleList skills}}
             <h3>{{ title }}</h3>
-            <p>{{ detail }}</p>
+            <p>{{{ detail }}}</p>
         {{/doubleList}}
     </div>
 </section>
@@ -62,7 +62,7 @@
 <section class="sec-contact">
     <h2>联系</h2>
     {{#list contact}}
-        {{ info }}:<a href="#">{{ title }}</a>
+        {{ title }}:<a href="#">{{ info }}</a>
     {{/list}}
 </section>
 <footer>

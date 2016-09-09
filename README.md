@@ -9,7 +9,11 @@ npm install
 * 在根目录使用`gulp`，输入：
 ```
 gulp
+font-spider ./index.html
 ```
+
+(注意：gulp-font-spider有bug，在此不使用)
+
 ### 技术栈
 * 用`gulp`实现前端自动化
 * 用`sass`作为`css`预处理器
